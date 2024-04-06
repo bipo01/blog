@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="formulariosRegEnt">
+            <form>
+                <button class="criarUmaNovaConta">Criar uma nova conta</button>
+            </form>
+            <form>
+                <button class="irPaginaInicial">Página Inicial</button>
+            </form>
+            <form>
+                <button class="entrarMinhaConta">Entrar na minha conta</button>
+            </form>
+        </div>
+        <div class="container">
+            <ul id="allPostsList"></ul>
+        </div>
+
+        <div class="container hidden">
+            <div class="formsjuntos">
+                <form>
+                    <button class="criarNovaConta">Criar uma nova conta</button>
+                </form>
+                <form>
+                    <button class="irPaginaInicialEntrar">
+                        Pagina Inicial
+                    </button>
+                </form>
+            </div>
+            <form id="entrarForm">
+                <input
+                    type="text"
+                    id="usernameEntrar"
+                    name="username"
+                    placeholder="Nome do Usuário"
+                    required
+                    autocomplete="off"
+                />
+
+                <input
+                    id="passwordEntrar"
+                    autocomplete="off"
+                    type="password"
+                    name="password"
+                    placeholder="Senha"
+                    required
+                />
+
+                <button class="full-width" id="btnEntrar" type="submit">
+                    Entrar
+                </button>
+            </form>
+            <p class="errado senhasDontMatchEntrar hidden">Senha Incorreta</p>
+            <p class="errado userInvalidEntrar hidden">Username Inválido</p>
+        </div>
+
+        <div class="container hidden">
+            <div class="formsjuntos">
+                <form>
+                    <button class="entrarNaMinhaConta">
+                        Entrar na minha conta
+                    </button>
+                </form>
+                <form>
+                    <button class="irPaginaInicialRegistrar">
+                        Página Inicial
+                    </button>
+                </form>
+            </div>
+
+            <form id="registrarForm">
+                <input
+                    type="text"
+                    id="nomeCompleto"
+                    name="nomecompleto"
+                    placeholder="Nome Completo"
+                    required
+                    autocomplete="off"
+                />
+
+                <input
+                    type="text"
+                    id="usernameRegistrar"
+                    name="username"
+                    placeholder="Nome do Usuário"
+                    required
+                    autocomplete="off"
+                />
+
+                <input
+                    id="passwordRegistar"
+                    autocomplete="off"
+                    type="password"
+                    name="password"
+                    placeholder="Senha"
+                    required
+                />
+                <input
+                    id="passwordConfirm"
+                    autocomplete="off"
+                    type="password"
+                    name="passwordConfirm"
+                    placeholder="Confirmar Senha"
+                    required
+                />
+                <button class="full-width" id="btnRegistrar" type="submit">
+                    Registrar
+                </button>
+            </form>
+            <p class="errado senhasDontMatch hidden">
+                As senhas estão diferentes
+            </p>
+            <p class="errado userInvalid hidden">Username Inválido</p>
+        </div>
+
+        <div class="container hidden">
+            <h1 id="h1journal">
+                <span>Journal</span
+                ><span
+                    ><form>
+                        <button class="sairDaConta">Sair</button>
+                    </form></span
+                >
+            </h1>
+            <a id="newPostBtn">Novo Post</a>
+            <ul id="postsListLogado"></ul>
+        </div>
+
+        <div class="container hidden">
+            <form id="newPostForm" method="post" action="/api/posts">
+                <input type="text" id="title" placeholder="Título" required />
+                <textarea
+                    id="content"
+                    placeholder="Conteúdo"
+                    required
+                    rows="10"
+                ></textarea>
+                <input type="text" id="author" placeholder="Autor" required />
+                <button class="full-width" id="addNovoPost" type="submit">
+                    Adicionar
+                </button>
+            </form>
+        </div>
+
+        <div class="container hidden">
+            <form id="editPostForm" method="post" action="/api/posts">
+                <input
+                    type="text"
+                    id="titleEdit"
+                    placeholder="Título"
+                    required
+                />
+                <textarea
+                    id="contentEdit"
+                    placeholder="Conteúdo"
+                    required
+                    rows="10"
+                ></textarea>
+                <input
+                    type="text"
+                    id="authorEdit"
+                    placeholder="Autor"
+                    required
+                />
+                <button class="full-width" id="editPost" type="submit">
+                    Editar
+                </button>
+            </form>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
