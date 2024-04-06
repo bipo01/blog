@@ -132,7 +132,7 @@ btnCriarMinhaConta.addEventListener("click", (e) => {
 let currentAccount;
 
 async function allPosts() {
-    const response = await fetch("http://localhost:3000/allposts");
+    const response = await fetch("https://blogapi-opal.vercel.app/allposts");
     const data = await response.json();
 
     if (data.length > 0) {
@@ -173,14 +173,14 @@ btnEntrar.addEventListener("click", async (e) => {
     let username = inputUsernameEntrar.value;
     let password = inputPasswordEntrar.value;
 
-    const response = await fetch(`http://localhost:3000/`);
+    const response = await fetch(`https://blogapi-opal.vercel.app/`);
     const data = await response.json();
     console.log(data);
     const currentUser = data.find((el) => el.username === username);
     console.log(currentUser);
     if (currentUser) {
         const response = await fetch(
-            `http://localhost:3000/getuser?username=${username}`
+            `https://blogapi-opal.vercel.app/getuser?username=${username}`
         );
         currentAccount = await response.json();
         console.log(currentAccount);
@@ -201,7 +201,7 @@ btnEntrar.addEventListener("click", async (e) => {
 
 async function getPostsLogged(currentAccount) {
     const response = await fetch(
-        `http://localhost:3000/getposts?username=${currentAccount[0].username}`
+        `https://blogapi-opal.vercel.app/getposts?username=${currentAccount[0].username}`
     );
     const data = await response.json();
 
@@ -223,7 +223,7 @@ async function getPostsLogged(currentAccount) {
     allBtnDelete.forEach((btn, i) => {
         btn.addEventListener("click", async () => {
             const response = await fetch(
-                `http://localhost:3000/delete?id=${btn.id}`
+                `https://blogapi-opal.vercel.app/delete?id=${btn.id}`
             );
             const data = await response.json();
             console.log(data);
@@ -274,7 +274,7 @@ btnAddNovoPost.addEventListener("click", async (e) => {
     console.log(title.value, content.value, author.value, username);
 
     const response = await fetch(
-        `http://localhost:3000/add?username=${username}&title=${title.value}&content=${content.value}&author=${author.value}`
+        `https://blogapi-opal.vercel.app/add?username=${username}&title=${title.value}&content=${content.value}&author=${author.value}`
     );
     const data = await response.json();
 
@@ -295,7 +295,7 @@ btnRegistrar.addEventListener("click", async (e) => {
     const password = document.querySelector("#passwordRegistar");
     const passwordConfirm = document.querySelector("#passwordConfirm");
 
-    const response = await fetch(`http://localhost:3000/`);
+    const response = await fetch(`https://blogapi-opal.vercel.app/`);
     const data = await response.json();
 
     const exist = data.find((el) => el.username === username.value);
@@ -306,7 +306,7 @@ btnRegistrar.addEventListener("click", async (e) => {
     } else {
         if (password.value === passwordConfirm.value) {
             const response = await fetch(
-                `http://localhost:3000/newuser?username=${username.value}&password=${password.value}`
+                `https://blogapi-opal.vercel.app/newuser?username=${username.value}&password=${password.value}`
             );
             const data = await response.json();
             currentAccount = data;
@@ -334,7 +334,7 @@ btnEditarPost.addEventListener("click", async (e) => {
     const author = document.querySelector("#authorEdit");
 
     const response = await fetch(
-        `http://localhost:3000/edit?id=${idEditada}&title=${title.value}&content=${content.value}&author=${author.value}`
+        `https://blogapi-opal.vercel.app/edit?id=${idEditada}&title=${title.value}&content=${content.value}&author=${author.value}`
     );
     const data = await response.json();
 
